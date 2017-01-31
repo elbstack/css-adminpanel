@@ -1,5 +1,5 @@
 {
-  "name": "webdrivercss-adminpanel",
+  "name": "css-adminpanel",
   "version": "0.0.0",
   "dependencies": {
     "angular": ">=1.2.*",

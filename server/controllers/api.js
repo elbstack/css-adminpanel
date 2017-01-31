@@ -119,7 +119,7 @@ exports.downloadRepository = function(req, res) {
 
     var file = req.params.file,
         project = file.replace(/\.tar\.gz/, ''),
-        tmpPath = path.join(__dirname, '..', '..', '.tmp', 'webdrivercss-adminpanel' , project),
+        tmpPath = path.join(__dirname, '..', '..', '.tmp', 'css-adminpanel' , project),
         tarPath = tmpPath + '.tar.gz',
         projectPath = path.join(imageRepo, project);
 
