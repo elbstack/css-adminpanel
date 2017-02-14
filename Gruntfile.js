@@ -41,11 +41,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        open: {
-            server: {
-                url: 'http://localhost:<%= express.options.port %>'
-            }
-        },
         watch: {
             js: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
@@ -179,13 +174,6 @@ module.exports = function(grunt) {
                     callback: function(nodemon) {
                         nodemon.on('log', function(event) {
                             console.log(event.colour);
-                        });
-
-                        // opens browser on initial server start
-                        nodemon.on('config:update', function() {
-                            setTimeout(function() {
-                                require('open')('http://localhost:8080/debug?port=5858');
-                            }, 500);
                         });
                     }
                 }
@@ -457,7 +445,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('serve', function(target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'express:prod', 'open', 'express-keepalive']);
+            return grunt.task.run(['build', 'express:prod', 'express-keepalive']);
         }
 
         if (target === 'debug') {
@@ -474,7 +462,6 @@ module.exports = function(grunt) {
             'concurrent:server',
             'autoprefixer',
             'express:dev',
-            'open',
             'watch'
         ]);
     });
